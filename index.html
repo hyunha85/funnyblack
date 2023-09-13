@@ -1,27 +1,17 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>카톡 공유</title>
-<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-</head>
-<body>
-    <input type="button" onClick="sendLinkCustom();" value="Custom"/>
-    <input type="button" onClick="sendLinkDefault();" value="Default"/>
-
-<script type="text/javascript">
-    function sendLinkCustom() {
-        Kakao.init("5bc2d9a69166552777cd38462398e710");
-        Kakao.Link.sendCustom({
-            templateId: [968704]
-        });
-    }
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js"
+  integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('c089c8172def97eb00c07217cae17495'); // 사용하려는 앱의 JavaScript 키 입력
 </script>
 
+<a id="kakaotalk-sharing-btn" href="javascript:shareMessage()">
+  <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+    alt="카카오톡 공유 보내기 버튼" />
+</a>
+
 <script>
-try {
-  function sendLinkDefault() {
-    Kakao.init('5bc2d9a69166552777cd38462398e710')
-    Kakao.Link.sendDefault({
+  function shareMessage() {
+    Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
         title: '딸기 치즈 케익',
@@ -29,8 +19,9 @@ try {
         imageUrl:
           'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
         link: {
-          mobileWebUrl: 'https://incarinvitation.modoo.at',
-          webUrl: 'https://incarinvitation.modoo.at',
+          // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+          mobileWebUrl: 'https://developers.kakao.com',
+          webUrl: 'https://developers.kakao.com',
         },
       },
       social: {
@@ -42,23 +33,18 @@ try {
         {
           title: '웹으로 보기',
           link: {
-            mobileWebUrl: 'https://incarinvitation.modoo.at',
-            webUrl: 'https://incarinvitation.modoo.at',
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
           },
         },
         {
           title: '앱으로 보기',
           link: {
-            mobileWebUrl: 'https://incarinvitation.modoo.at',
-            webUrl: 'https://incarinvitation.modoo.at',
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
           },
         },
       ],
-    })
+    });
   }
-; window.kakaoDemoCallback && window.kakaoDemoCallback() }
-catch(e) { window.kakaoDemoException && window.kakaoDemoException(e) }
 </script>
-   
-</body>
-</html>
